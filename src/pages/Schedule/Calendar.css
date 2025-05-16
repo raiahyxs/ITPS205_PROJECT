@@ -1,0 +1,155 @@
+/* Custom styles for react-calendar */
+
+/* Import the default styles first (if not already imported in JS/TS or at top of this file) */
+/* @import 'react-calendar/dist/Calendar.css'; */
+
+/* Overall calendar container */
+.custom-react-calendar {
+  border: none; /* Remove default border */
+  border-radius: 0.75rem; /* Match other rounded corners: rounded-xl */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+  padding: 0.75rem; /* MODIFIED: Reduced padding for a smaller look (was 1rem) */
+  background-color: #f9fafb; /* bg-gray-50 - or use #fff for white */
+  width: 100% !important; /* Ensure it takes the width of its container */
+  max-width: 100%; /* Ensure it doesn't overflow small containers */
+  display: flex; /* Use flexbox for internal layout control */
+  flex-direction: column; /* Stack children vertically */
+}
+
+/* Navigation bar (month/year selection) */
+.custom-react-calendar .react-calendar__navigation {
+  background-color: #e0f2f1; /* A light teal, adjust as needed */
+  border-radius: 0.5rem 0.5rem 0 0; /* Rounded top corners */
+  margin-bottom: 0.5em; /* Spacing below navigation */
+  padding: 0.5em 0;
+  flex-shrink: 0; /* Prevent navigation from shrinking */
+}
+
+.custom-react-calendar .react-calendar__navigation button {
+  color: #00796b; /* Teal text color for navigation buttons */
+  font-weight: bold;
+  font-size: 0.875em; /* MODIFIED: Slightly smaller font (was 0.9em) */
+  padding: 0.45em 0.9em; /* MODIFIED: Slightly smaller padding (was 0.5em 1em) */
+}
+.custom-react-calendar .react-calendar__navigation button:hover,
+.custom-react-calendar .react-calendar__navigation button:focus {
+  background-color: #b2dfdb !important; /* Lighter teal on hover/focus */
+}
+
+/* View container for month, year, decade views */
+.custom-react-calendar .react-calendar__viewContainer {
+  flex-grow: 1; /* Allow view container to take remaining space */
+  display: flex;
+  flex-direction: column;
+  width: 100% !important; /* Ensure it takes full width */
+  overflow: hidden; /* Important to contain the fixed-height grid */
+}
+
+.custom-react-calendar .react-calendar__month-view {
+  flex-grow: 1; /* Allow month view to take remaining space */
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+}
+
+/* This div is the direct child of month-view and holds weekdays and days grid */
+.custom-react-calendar .react-calendar__month-view > div:last-child {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Important to contain the fixed-height grid */
+}
+
+
+/* View for days of the week */
+.custom-react-calendar .react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.775em; /* MODIFIED: Slightly smaller font (was 0.8em) */
+  color: #004d40; /* Darker teal for weekday labels */
+  padding-bottom: 0.45em; /* MODIFIED: Slightly smaller padding (was 0.5em) */
+  flex-shrink: 0; /* Prevent weekdays from shrinking */
+  width: 100% !important;
+}
+
+.custom-react-calendar .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none; /* Remove underline from abbreviations */
+}
+
+/* Grid of day tiles */
+.custom-react-calendar .react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important; /* Ensure 7 columns */
+  grid-template-rows: repeat(6, 1fr) !important; /* FORCE 6 rows */
+  gap: 0.2rem; /* MODIFIED: Smaller gap between tiles (was 0.25rem) */
+  flex-grow: 1; /* Make the days grid take up available space in its flex parent */
+  width: 100% !important;
+  /* The height will be determined by the 1fr rows and the parent's ability to constrain. */
+}
+
+/* Individual day tiles */
+.custom-react-calendar .react-calendar__tile {
+  border-radius: 0.375rem; /* rounded-md */
+  padding: 0.22em; /* MODIFIED: Adjusted padding for potentially smaller forced height (was 0.25em) */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border: 1px solid transparent; /* Prepare for focus/hover border */
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2em; /* MODIFIED: Minimum height for a tile, slightly reduced (was 2.2em) */
+  height: 100%; /* Make tile take full height of its grid cell (1fr row) */
+  box-sizing: border-box;
+}
+.custom-react-calendar .react-calendar__tile:hover {
+  background-color: #ccedf9; /* A light blue for hover, similar to your design */
+}
+
+/* Selected day tile */
+.custom-react-calendar .react-calendar__tile--active {
+  background-color: #2563eb !important; /* Blue-600, matching "Save Trip" button */
+  color: white !important;
+  font-weight: bold;
+}
+.custom-react-calendar .react-calendar__tile--active:hover {
+  background-color: #1d4ed8 !important; /* Darker blue on hover for selected */
+}
+
+/* Today's date tile (not selected) */
+.custom-react-calendar .react-calendar__tile--now {
+  background-color: #e0f2f1; /* Light teal for today */
+  color: #00796b; /* Teal text for today */
+  font-weight: bold;
+}
+.custom-react-calendar .react-calendar__tile--now:hover {
+  background-color: #b2dfdb;
+}
+
+/* Selected today's date tile */
+.custom-react-calendar .react-calendar__tile--now.react-calendar__tile--active {
+  background-color: #1e88e5 !important; /* A slightly different blue for "today & selected" */
+}
+
+
+/* Tiles for days outside the current month */
+.custom-react-calendar .react-calendar__month-view__days__day--neighboringMonth {
+  color: #9ca3af; /* gray-400 */
+  /* visibility: hidden; */ /* Optionally hide numbers from other months if layout is stable */
+}
+.custom-react-calendar .react-calendar__month-view__days__day--neighboringMonth:hover {
+  background-color: #f3f4f6; /* gray-100 */
+  color: #6b7280; /* gray-500 */
+}
+
+/* Adjust button sizes for smaller screens if needed */
+@media (max-width: 400px) {
+  .custom-react-calendar .react-calendar__navigation button {
+    min-width: 30px; /* Ensure nav buttons don't get too squished */
+    padding: 0.5em;
+  }
+  .custom-react-calendar .react-calendar__tile {
+    padding: 0.3em 0.15em; /* Smaller padding on very small screens */
+    font-size: 0.9em; /* Slightly smaller font on very small screens */
+    min-height: 2em;
+  }
+}

@@ -1,0 +1,35 @@
+For Layout Overlays:
+background-color: rgba(133, 255, 194, 0.466);
+background-color: rgba(255, 133, 133, 0.466);
+background-color: rgba(133, 145, 255, 0.47);
+
+
+
+
+Primary:
+          'Bg-LightMode': ' #E2EDEF',
+          'Bg-LightMode2': ' #E8FBFF',
+          'Bg-DarkMode': ' #313636',
+          'Bg-DarkMode2': ' #425255',
+
+          'Text-LightMode': ' #1B4A53',
+          'Text-DarkMode': '#c1f7fd',
+          'Text-DarkMode1': '#1B4A53',
+
+          'Outline-DarkMode': '#585f5f', 
+
+
+          'Button-DarkMode':' #1B4A53',
+          'Button-DarkMode_Hover':' #437c88',
+          'Button1-DarkMode':' #406971',
+
+          'Button1-LightMode': ' #1B4A53',
+          'Button1-LightMode_Hover': ' #437c88',
+          'Button2-LightMode': ' #E2EDEF',
+          'Button2-LightMode_Hover': ' #c1f7fd',
+
+
+#d9f9fc;
+#9fd6d8;
+
+#112f35

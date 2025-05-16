@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app-window {
+  display: flex;
+}
+
+
